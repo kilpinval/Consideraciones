@@ -1,0 +1,15 @@
+Ese error indica que el servicio (daemon) 
+responsable de gestionar los agentes de tu 
+aplicación no está respondiendo o no ha iniciado 
+correctamente. Por lo general, esto ocurre en 
+herramientas como Docker, Jenkins, Jenkins Agents, 
+u otros servicios de orquestación.
+​Aquí tienes los pasos para diagnosticar y 
+solucionar el problema:
+​1. Verificar si el servicio está activo
+​Lo primero es comprobar si el daemon está 
+realmente ejecutándose. Ejecuta el siguiente 
+comando (reemplaza nombre_del_servicio por 
+el nombre del proceso, por ejemplo docker, 
+jenkins, etc.): 
+[sudo systemctl status nombre_del_servicio]
