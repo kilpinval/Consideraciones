@@ -13,3 +13,17 @@ comando (reemplaza nombre_del_servicio por
 el nombre del proceso, por ejemplo docker, 
 jenkins, etc.): 
 [sudo systemctl status nombre_del_servicio]
+
+​Si el estado es inactive o dead: Ejecuta sudo systemctl start nombre_del_servicio.
+​Si el estado es failed: Revisa el registro de errores con sudo journalctl -u nombre_del_servicio --no-pager -n 50.
+​2. Comprobar permisos de acceso (Socket/API)
+​Muchos daemons exponen una API a través de un archivo "socket" (por ejemplo, /var/run/docker.sock). Si tu usuario no tiene permisos para leer ese archivo, la API no será alcanzable.
+​Prueba con privilegios: Intenta ejecutar el comando que falla usando sudo. Si funciona, es un problema de permisos de grupo.
+​Añadir usuario al grupo: Si es Docker, por ejemplo, puedes hacer:
+sudo usermod -aG docker $USER (requiere cerrar sesión y volver a entrar).
+​3. Verificar el puerto o endpoint de la API
+​Si el daemon se comunica a través de una red (puerto TCP) en lugar de un socket local, asegúrate de que el puerto no esté bloqueado:
+​Comprueba si el puerto está abierto: sudo netstat -tulpn | grep LISTEN
+​Firewall: Si el daemon está en otro contenedor o servidor, asegúrate de que el firewall (ufw/iptables) permita el tráfico hacia ese puerto.
+​4. Reinicio de emergencia
+​Si nada de lo anterior funciona, a veces el daemon queda en un estado "zombie" (procesos colgados que no responden). Un reinicio limpio suele resolverl
