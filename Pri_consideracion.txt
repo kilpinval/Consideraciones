@@ -1,0 +1,28 @@
+Es importante aclarar primero un pequeño detalle: probablemente te refieres a "Cursor" (el editor de código basado en IA que utiliza modelos como Claude o GPT) o a "DeepSeek" (el modelo de lenguaje). No existe un asistente llamado "Paseo Codex", por lo que asumiré que buscas formas de mejorar tus prompts para obtener mejores resultados al programar.
+​Para sacarle el máximo provecho a herramientas como Cursor (con modelos como Claude 3.5 Sonnet) o DeepSeek Coder, la clave no es un "comando mágico", sino la estructura de tu instrucción.
+​Aquí tienes una guía de cómo estructurar tus comandos (prompts) para que estas IAs generen código de alta calidad:
+​1. El Framework "ROL - CONTEXTO - TAREA - FORMATO"
+​Para obtener resultados profesionales, intenta seguir esta estructura:
+​Rol: Define quién es la IA (ej. "Actúa como un experto desarrollador Senior en React").
+​Contexto: Explica qué estás haciendo, qué tecnologías usas y qué restricciones tienes (ej. "Estoy creando un componente de formulario, usando Tailwind CSS y TypeScript").
+​Tarea: Sé específico con lo que quieres lograr.
+​Formato: Indica cómo quieres recibir el código (ej. "Solo dame la lógica del hook", "Explícame paso a paso antes de darme el código").
+​2. Comandos útiles (Ejemplos)
+​Puedes copiar y adaptar estos modelos según tu necesidad:
+​Para crear algo desde cero:
+​"Actúa como un experto en [Tecnología, ej: Python/FastAPI]. Crea una estructura de proyecto para una API que gestione [Tarea, ej: un sistema de inventarios]. Incluye el manejo de errores base y el uso de [Librería, ej: Pydantic]. Mantén el código limpio y modular."
+​Para refactorizar o mejorar código:
+​"Revisa el siguiente código [pegar código]. Identifica cuellos de botella en el rendimiento y sugiere una refactorización para hacerlo más [legible/escalable/eficiente]. Explica los cambios realizados."
+​Para encontrar errores (Debugging):
+​"Tengo este error: [pegar error]. El código que lo causa es este: [pegar código]. Analiza por qué ocurre y propón una solución que siga las mejores prácticas de [Lenguaje]."
+​3. "Comandos" específicos en Cursor (Shortcuts)
+​Si usas Cursor, recuerda que no solo usas prompts, sino comandos de teclado que activan la IA:
+​Ctrl + K (o Cmd + K): Abre la ventana de edición directa sobre el código. Es el mejor comando para escribir o editar código en el mismo archivo donde estás trabajando.
+​Ctrl + L (o Cmd + L): Abre el chat lateral. Es ideal para hacer preguntas sobre todo el proyecto, pedir explicaciones largas o pedir que la IA busque archivos relacionados en tu carpeta de trabajo.
+​@Files o @Folders: (Muy importante) En Cursor, usa el símbolo @ seguido del nombre del archivo o carpeta. Esto permite que la IA "lea" tu contexto real. Ejemplo:
+​"Basado en @auth_service.py, crea un middleware que proteja las rutas definidas en @routes.py."
+​Consejos de oro para DeepSeek y otros modelos:
+​Divide y vencerás: Si el problema es complejo, no pidas todo el programa de una vez. Pide primero la arquitectura, luego el modelo de datos, luego la lógica de negocio.
+​Exige explicaciones: Siempre añade al final: "Explícame brevemente el razonamiento detrás de esta solución". Esto te ayudará a aprender y a detectar si la IA alucinó algo incorrecto.
+​Itera: Si la primera respuesta no es perfecta, no empieces de cero. Dile: "La solución es buena, pero cámbiala para que sea más performante en cuanto a memoria" o "No uses esa librería, prefiero una solución nativa".
+​¿Hay algún lenguaje de programación o framework específico en el que estés trabajando ahora mismo para ayudarte a redactar un prompt preciso para ese caso?
